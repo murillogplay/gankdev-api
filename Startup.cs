@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GankdevApi.Interfaces;
+using GankdevApi.Services;
+using GankdevApi.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,7 +15,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace gankdev_api
+namespace GankdevApi
 {
     public class Startup
     {
@@ -26,11 +29,17 @@ namespace gankdev_api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
+            services.AddSingleton<IDbClient, DbClient>();
 
+            services.Configure<GankdevDbConfig>(Configuration);
+
+            services.AddTransient<IUsuarioServices, UsuarioServices>();
+            
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "gankdev_api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "GankdevApi", Version = "v1" });
             });
         }
 
@@ -41,7 +50,7 @@ namespace gankdev_api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "gankdev_api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GankdevApi v1"));
             }
 
             app.UseHttpsRedirection();
