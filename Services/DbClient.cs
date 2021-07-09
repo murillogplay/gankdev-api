@@ -10,7 +10,7 @@ namespace GankdevApi.Services{
         public DbClient(IOptions<GankdevDbConfig> gankdevDbConfig){
             var client = new MongoClient(gankdevDbConfig.Value.Connection_String);
             var database = client.GetDatabase(gankdevDbConfig.Value.DataBase_Name);
-            _usuarios = database.GetCollection<Usuario>(gankdevDbConfig.Value.Collection_Name);
+            _usuarios = database.GetCollection<Usuario>(gankdevDbConfig.Value.Usuarios_Collection_Name);
 
         }
         public IMongoCollection<Usuario> GetUsuarioCollection() => _usuarios;

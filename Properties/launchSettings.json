@@ -16,7 +16,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DATABASE_NAME":"Gankdev",
-        "COLLECTION_NAME":"usuario"
+        "USUARIOS_COLLECTION_NAME":"usuarios"
       }
     },
     "GankdevApi": {
@@ -28,7 +28,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "DATABASE_NAME":"Gankdev",
-        "COLLECTION_NAME":"usuario"
+        "USUARIOS_COLLECTION_NAME":"usuarios"
       }
     }
   }

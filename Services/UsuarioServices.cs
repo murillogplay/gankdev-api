@@ -13,7 +13,26 @@ namespace GankdevApi.Services{
             _usuario = dbClient.GetUsuarioCollection();
         }
 
+        public Usuario AddUsuario(Usuario usuario)
+        {
+            _usuario.InsertOne(usuario);
+            return usuario;
+        }
+
+        public void DeleteUsuario(string id)
+        {
+            _usuario.DeleteOne(usuario => usuario.Id == id);
+        }
+
+        public Usuario GetUsuario(string id) => _usuario.Find(usuario => usuario.Id == id).First();
+
         public List<Usuario> GetUsuarios() => _usuario.Find(usuario => true).ToList();
-        
+
+        public Usuario UpdateUsuario(Usuario usuario)
+        {
+            GetUsuario(usuario.Id);
+            _usuario.ReplaceOne( u => u.Id == usuario.Id, usuario);
+            return usuario;
+        }
     }
 }
