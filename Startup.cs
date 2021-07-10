@@ -52,6 +52,8 @@ namespace GankdevApi
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GankdevApi v1"));
             }
+            app.UseDefaultFiles(new DefaultFilesOptions { DefaultFileNames = new  List<string> { "index.html" } });
+            app.UseStaticFiles();
 
             app.UseHttpsRedirection();
 
