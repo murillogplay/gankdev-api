@@ -6,7 +6,7 @@ Projeto de Api principal da Gankdev
 
 * .Net core 5.0 
 * MongoDB Atlas
-* Hospedado na Azure -- [GanDek API](https://api-gankdev.azurewebsites.net/)
+* Hospedado na Azure -- [GankDev API](https://api-gankdev.azurewebsites.net/)
  
 Github Actions CI/CD
 
