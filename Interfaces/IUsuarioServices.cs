@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using GankdevApi.Models;
 
 namespace GankdevApi.Interfaces{
@@ -9,6 +10,7 @@ namespace GankdevApi.Interfaces{
         Usuario AddUsuario(Usuario usuario);
         void DeleteUsuario(string id);
         Usuario UpdateUsuario(Usuario usuario);
+        Usuario Authenticate(Usuario usuario);
 
     }
 

@@ -43,5 +43,9 @@ namespace GankdevApi.Controllers
         public IActionResult UpdateUsuario(Usuario usuario){
             return Ok(_usuarioServices.UpdateUsuario(usuario));
         }
+        [HttpPost("authenticate")]
+        public IActionResult Autenthicate(Usuario usuario){
+            return Ok(_usuarioServices.Authenticate(usuario));
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using GankdevApi.Models;
 using GankdevApi.Interfaces;
 using MongoDB.Driver;
+using System.Threading.Tasks;
 
 namespace GankdevApi.Services{
     
@@ -34,5 +35,9 @@ namespace GankdevApi.Services{
             _usuario.ReplaceOne( u => u.Id == usuario.Id, usuario);
             return usuario;
         }
+
+        public Usuario Authenticate(Usuario usuario) => _usuario.Find(us => us.Email == usuario.Email && us.Senha == usuario.Senha).First();
+           
+       
     }
 }
